@@ -1,0 +1,134 @@
+---
+const navItems = [
+  {
+    title: "Inicio",
+    label: "Inicio",
+    url: "/#inicio",
+  },
+  {
+    title: "Servicios",
+    label: "Servicios",
+    url: "/#servicios",
+  },
+  {
+    title: "Nosotros",
+    label: "Nosotros",
+    url: "/#nosotros",
+  },
+  {
+    title: "Contacto",
+    label: "Contacto",
+    url: "/#contacto",
+  },
+];
+---
+
+<header
+  class="fixed z-10 flex items-center justify-between text-black w-full mx-auto px-4 border border-gray-500 bg-white"
+>
+  <div class="flex items-center">
+    <a href="/#inicio">
+      <img src="/logo.jpeg" class="size-36" alt="" />
+    </a>
+  </div>
+  <nav
+    class="hidden md:flex px-3 text-2xl font-semibold rounded-full justify-center items-center gap-4"
+  >
+    {
+      navItems.map((link) => (
+        <a
+          class="relative block px-2 py-2 transition hover:text-blue-500"
+          aria-label={link.label}
+          href={link.url}
+        >
+          {link.title}
+        </a>
+      ))
+    }
+  </nav>
+  <div class="flex items-center">
+    <p class="text-blue-600 font-semibold text-2xl hidden md:block">
+      Soluciones sin contratiempo
+    </p>
+    <button
+      id="menu-button"
+      class="flex items-center px-3 py-2 border rounded md:hidden"
+    >
+      <svg
+        class="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<aside
+  id="menu"
+  class="fixed transform top-0 right-0 w-64 bg-white h-full overflow-auto ease-in-out transition-all duration-300 z-30 translate-x-full"
+>
+  <header class="flex justify-between items-center p-4 border-b">
+    <h2 class="text-xl font-bold text-blue-600">Transtime</h2>
+    <button id="close-button" class="p-2">
+      <svg
+        class="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </header>
+  <nav>
+    {
+      navItems.map((link) => (
+        <a
+          class="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+          aria-label={link.label}
+          href={link.url}
+        >
+          {link.title}
+        </a>
+      ))
+    }
+  </nav>
+  <footer class="absolute bottom-0 w-full p-4 border-t">
+    <p class="text-center text-sm">
+      © 2024 <strong class="text-blue-600">Transtime</strong>. Todos los
+      derechos reservados.
+    </p>
+  </footer>
+</aside>
+
+<script>
+  const menuButton = document.getElementById("menu-button");
+  const closeButton = document.getElementById("close-button");
+  const menu = document.getElementById("menu");
+
+  function toggleMenu() {
+    if (menu.classList.contains("translate-x-full")) {
+      menu.classList.remove("translate-x-full");
+      menu.classList.add("translate-x-0");
+    } else {
+      menu.classList.remove("translate-x-0");
+      menu.classList.add("translate-x-full");
+    }
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
+  closeButton.addEventListener("click", toggleMenu);
+</script>

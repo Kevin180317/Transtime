@@ -1,0 +1,54 @@
+---
+const mision = {
+  title: "Misión",
+  description:
+    "Nuestra misión es ser el aliado estratégico de nuestros clientes, brindando soluciones logísticas integrales y eficientes que potencien su éxito. Nos dedicamos a ofrecer servicios de gestión de la cadena de suministro, comprometidos con los más altos estándares de confiabilidad y atención al cliente.",
+};
+
+const vision = {
+  title: "Visión",
+  description:
+    "Buscamos consolidarnos como referentes indiscutibles en el ámbito de la logística, distinguiéndonos por nuestra impecable ejecución operativa, continua búsqueda de innovación y dedicación absoluta a la satisfacción del cliente. Aspiramos a ampliar nuestra influencia a nivel mundial y convertirnos en el socio predilecto para aquellas empresas que buscan soluciones logísticas avanzadas para potenciar su desarrollo y competitividad en el mercado global.",
+};
+
+const valores = {
+  title: "Valores",
+  description:
+    "Responsabilidad, Eficiencia, Compromiso con el cliente, Colaboración, Adaptabilidad, Respeto",
+};
+---
+
+<div
+  class="flex flex-col items-center justify-center text-center p-8 bg-white shadow-md rounded-lg"
+>
+  <img src="/logo.jpeg" alt="Logo de Transtime" class="w-48 h-48" />
+
+  <h1 class="mb-4 text-4xl font-bold text-blue-600">Nosotros</h1>
+  <p class="font-semibold text-xl leading-relaxed text-gray-700">
+    En <span class="font-bold text-blue-600">Transtime</span>, nos
+    especializamos en transporte internacional y servicios logísticos. Nos
+    comprometemos a proporcionarte la solución más adecuada para tus mercancías
+    en cualquier parte del mundo.
+  </p>
+  <p class="font-semibold text-xl leading-relaxed mt-4 text-gray-700">
+    Nuestra misión en <span class="font-bold text-blue-600">Transtime</span> es ofrecerte
+    un servicio excepcional, asegurando que nunca seas considerado simplemente como
+    un cliente más. Nos esforzamos por garantizar tu éxito.
+  </p>
+  <div
+    class="grid grid-cols-1 md:grid-cols-3 gap-8 p-8 mt-8 border border-gray-400 rounded-lg"
+  >
+    {
+      [mision, vision, valores].map((item) => (
+        <div class="flex flex-col items-center space-y-2 p-4 border border-gray-300 rounded shadow-sm">
+          <h2 class="text-3xl font-bold text-blue-600 text-center">
+            {item.title}
+          </h2>
+          <p class="font-semibold text-lg leading-relaxed text-gray-700">
+            {item.description}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</div>
